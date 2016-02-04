@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="cloudbox.cbapp.build" default="build">
+<property name="plugin" value="${pluginname}"/>
+<property name="publishRepo" value="${publishRepository}"/>
+<property name="version" value="${Version}"/>
+
+	<target name="build" description="" depends="">
+		<delete dir="../target/${plugin}"/>
+		<mkdir dir="../target"/>
+		<property name="pluginloc" value="../target/${plugin}"/>
+		<mkdir dir="${pluginloc}" />
+		<copy includeemptydirs="false" todir="${pluginloc}">
+			<fileset dir="."/>
+		</copy>
+		<exec executable="/bin/sh">
+		    <arg value="-c"/>
+		    <arg value="bundle install --path vendor/bundle"/>
+		</exec>
+	</target>
+	
+	<target name="publish" description="" depends="">
+		<property name="pluginpublishloc" value="${publishRepo}/${plugin}"/>
+		<mkdir dir="${pluginpublishloc}" />
+		<mkdir dir="${pluginpublishloc}/${version}" />
+		<copy includeemptydirs="false" todir="${pluginpublishloc}/${version}">
+			<fileset dir="../target/${plugin}"/>
+		</copy>
+	</target>
+
+	<target name="test" description="" depends="">
+		<exec executable="/bin/sh">
+		    <arg value="-c"/>
+		    <arg value="ruby test/${plugin}_test.rb"/>
+		</exec>
+	</target>	
+</project>

@@ -1,0 +1,70 @@
+{
+  "id": "Cloudmunch-SlackChatter",
+  "name": "Cloudmunch SlackChatter Plugin",
+  "author": "Ganesan",
+  "version": "1",
+  "status": "enabled",
+  "tags": [
+    "insights",
+    "jira",
+    "stories",
+    "sprints"
+  ],
+  "inputs": {
+     "username": {
+        "label": "User Name",
+        "display": "yes",
+        "type": "text",
+        "defaultValue": "MilanDai",
+        "hint": "User name"
+      },
+      "access_token": {
+        "label": "Access Token",
+        "display": "yes",
+        "type": "password",
+        "defaultValue": "xoxp-16444873008-16439152100-16839581200-c78a3fd024",
+        "hint": "Access Token"
+      },
+      "channel_id": {
+        "label": "Channel ID",
+        "display": "yes",
+        "type": "text",
+        "defaultValue": "devops",
+        "hint": "channel id of the slack"
+      },
+      "message": {
+        "label": "Message To Be Pushed To Slack",
+        "display": "yes",
+        "type": "text",
+        "defaultValue": "Hello World",
+        "hint": "Message To Slack"
+      },
+      "message_type": {
+        "label": "Type of message To Be Pushed To Slack",
+        "display": "yes",
+        "type": "text",
+        "defaultValue": "welcome",
+        "hint": "Message To Slack"
+      },
+      "message_to": {
+        "label": "Person or group message is send to",
+        "display": "yes",
+        "type": "text",
+        "defaultValue": "@rosmi",
+        "hint": "Message To Slack"
+      },
+
+
+  "execute": {
+    "main": "Cloudmunch-SlackChatter/src/Cloudmunch-SlackChatter.rb",
+    "language": "ruby",
+    "options": ""
+  },
+  "documentation": {
+    "description": "Pushes message to a Slack Channel."
+  },
+  "_created_by": "ganesan@cloudmunch.com",
+  "_create_time": "2015-12-22 06:23:25.0474",
+  "_updated_by": "ganesan@cloudmunch.com",
+  "_update_time": ""
+}
